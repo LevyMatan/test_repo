@@ -1,0 +1,16 @@
+# Create a new branch to save the current state
+git branch snapshot-branch
+
+# Save the state of submodules
+git submodule foreach 'git add -A && git commit -m "Snapshot of submodule state"'
+
+# Add all changes in the main repository
+git add -A
+
+# Commit the changes in the main repository
+git commit -m "Snapshot of main repository state"
+
+# Save the current submodule commits
+git submodule foreach 'echo $sha1 > .git_submodule_head'
+git add .git_submodule_head
+git commit -m "Save submodule HEAD states"
