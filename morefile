@@ -14,3 +14,5 @@ git commit -m "Snapshot of main repository state"
 git submodule foreach 'echo $sha1 > .git_submodule_head'
 git add .git_submodule_head
 git commit -m "Save submodule HEAD states"
+
+I am addition to new branch
